@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainChat: View {
     @State private var messageText = ""
+    @State private var messages = [Message]()
     var body: some View {
         NavigationStack {
             VStack {
@@ -31,7 +32,6 @@ struct MainChat: View {
                             .multilineTextAlignment(.center)
                     }
                 }
-                
                 Spacer()
                 VStack {
                     Image(systemName: "arrowtriangle.down.fill")
@@ -47,7 +47,7 @@ struct MainChat: View {
                         ScrollViewReader {value in
                             HStack{
                                 ForEach(people) { user in
-                                    NavigationLink(destination: UsersView(person: user)) {
+                                    NavigationLink(destination: ChatPrivate(person: user)) {
                                         
                                         VStack {
                                             Image(systemName: user.photo)
@@ -70,23 +70,48 @@ struct MainChat: View {
                         }
                     }
                 }
+                List {
+                                    ForEach(messages) { message in
+                                        HStack {
+                                            if message.isSender {
+                                                Spacer()
+                                            }
+                                            Text(message.text)
+                                                .padding(10)
+                                                .foregroundColor(.white)
+                                                .background(message.isSender ? Color.blue : Color.white)
+                                                .cornerRadius(10)
+                                            if !message.isSender {
+                                                Spacer()
+                                            }
+                                        }
+                                        .overlay(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .stroke(Color.white)
+                                        )
+                                        .padding(5)
+                                    }
+                                }
+                                .listStyle(PlainListStyle())
             }
+
             HStack {
-                TextField("Write a message", text: $messageText)
-                    .padding(.horizontal)
-                
-                Button(action: {
-                    print("Message sent: \(messageText)")
-                    messageText = ""
-                }, label: {
-                    Text("Send")
-                })
-                .padding(.horizontal)
-            }
-            .frame(height: 50)
-            .background(Color.gray.opacity(0.2))
-        }
-        .padding(.bottom, 20)
+                            TextField("Write a message", text: $messageText)
+                                .padding(.horizontal)
+                            
+                            Button(action: {
+                                let newMessage = Message(text: messageText, timestamp: Date(), isSender: true)
+                                messages.append(newMessage)
+                                messageText = ""
+                            }, label: {
+                                Text("Send")
+                            })
+                            .padding(.horizontal)
+                        }
+                        .frame(height: 50)
+                        .background(Color.gray.opacity(0.2))
+                    }
+                    .padding(.bottom, 20)
         
     }
 }
@@ -102,13 +127,20 @@ var people = [
     Staff(person: "Val", photo: "person.circle.fill", color: .yellow),
     Staff(person: "Chi", photo: "person.circle.fill", color: .purple),
     Staff(person: "Atm", photo: "person.circle.fill", color: .mint),
+    Staff(person: "Kev", photo: "person.circle.fill", color: .green),
     Staff(person: "Val", photo: "person.circle.fill", color: .yellow),
     Staff(person: "Chi", photo: "person.circle.fill", color: .purple),
     Staff(person: "Atm", photo: "person.circle.fill", color: .mint),
-    Staff(person: "Val", photo: "person.circle.fill", color: .yellow),
     Staff(person: "Chi", photo: "person.circle.fill", color: .purple),
     Staff(person: "Atm", photo: "person.circle.fill", color: .mint)
 ]
+
+struct Message: Identifiable {
+    let id = UUID()
+    let text: String
+    let timestamp: Date
+        let isSender: Bool
+}
 
 struct MainChat_Previews: PreviewProvider {
     static var previews: some View {

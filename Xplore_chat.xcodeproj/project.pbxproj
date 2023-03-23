@@ -11,7 +11,8 @@
 		6302B0DF29CAF8BD00B72248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6302B0DE29CAF8BD00B72248 /* Assets.xcassets */; };
 		6302B0E229CAF8BD00B72248 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6302B0E129CAF8BD00B72248 /* Preview Assets.xcassets */; };
 		6302B0E929CAF8FA00B72248 /* MainChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302B0E829CAF8FA00B72248 /* MainChat.swift */; };
-		6302B0EB29CB339500B72248 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302B0EA29CB339500B72248 /* UsersView.swift */; };
+		6302B0EB29CB339500B72248 /* ChatPrivate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302B0EA29CB339500B72248 /* ChatPrivate.swift */; };
+		6302B0ED29CCA72A00B72248 /* ProfilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6302B0EC29CCA72A00B72248 /* ProfilView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +21,8 @@
 		6302B0DE29CAF8BD00B72248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6302B0E129CAF8BD00B72248 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6302B0E829CAF8FA00B72248 /* MainChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChat.swift; sourceTree = "<group>"; };
-		6302B0EA29CB339500B72248 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		6302B0EA29CB339500B72248 /* ChatPrivate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPrivate.swift; sourceTree = "<group>"; };
+		6302B0EC29CCA72A00B72248 /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +57,9 @@
 			children = (
 				6302B0DA29CAF8BB00B72248 /* Xplore_chatApp.swift */,
 				6302B0E829CAF8FA00B72248 /* MainChat.swift */,
-				6302B0EA29CB339500B72248 /* UsersView.swift */,
+				6302B0EA29CB339500B72248 /* ChatPrivate.swift */,
 				6302B0DE29CAF8BD00B72248 /* Assets.xcassets */,
+				6302B0EC29CCA72A00B72248 /* ProfilView.swift */,
 				6302B0E029CAF8BD00B72248 /* Preview Content */,
 			);
 			path = Xplore_chat;
@@ -142,7 +145,8 @@
 			files = (
 				6302B0E929CAF8FA00B72248 /* MainChat.swift in Sources */,
 				6302B0DB29CAF8BB00B72248 /* Xplore_chatApp.swift in Sources */,
-				6302B0EB29CB339500B72248 /* UsersView.swift in Sources */,
+				6302B0ED29CCA72A00B72248 /* ProfilView.swift in Sources */,
+				6302B0EB29CB339500B72248 /* ChatPrivate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
